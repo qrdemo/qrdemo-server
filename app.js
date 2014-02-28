@@ -39,6 +39,14 @@ io.on('connection', function(socket){
   app.on('animate', function(){
     socket.emit('animate');
   });
+  socket.on('clear', function(){
+    console.log('clear')
+    var groupid = app.get('groupid');
+    ++groupid;
+
+    app.set('groupid', groupid);
+    app.set('clientid', 0);
+  })
 });
 
 server.listen(app.get('port'));
