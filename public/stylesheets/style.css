@@ -10,29 +10,34 @@
 body {
   font: 16px Arial, sans-serif;
   text-align: center;
+  background-color: #597186;
 }
 
-html, body{
-  height: 100%;
-  width: 100%;
-}
+
 a {
-  color: #00B7FF;
+  color: #fff;
+  text-shadow: -1px -1px 0 rgba(8, 38, 51, 0.8);
+}
+
+a:active{
+    color: #EBBFA5;
 }
 
 #animate{
-    display: inline-block;
-    height: 100%;
+    display: block;
+    margin: auto;
     text-align: center;
     text-decoration: none;
-    font-size: 60px;
-    padding:10px 0;
+    font-size: 36px;
+    padding:60px 0;
 }
 
 #animate img{
     display: block;
+    margin: 20px auto 0;
+    vertical-align: middle;
+    max-width: 100%;
     width: 50%;
-    margin: auto;
 }
 
 #animate:hover{
