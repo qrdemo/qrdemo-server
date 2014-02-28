@@ -39,6 +39,26 @@ exports.fire = function(req, res){
   res.end();
 };
 
+exports.getEnv = function(req, res){
+  var o = {
+    ip: ip,
+    port: port
+  };
+  var method = req.query['callback'] || 'callback';
+  res.send(method + '(' + JSON.stringify(o) + ')');
+};
+
+exports.client = function(req, res){
+  res.render('client', {
+    url: ['http://', ip, ':', port, '/animate'].join('')
+  });
+};
+
+exports.animate = function(req, res){
+  app.emit('animate');
+  res.end();
+}
+
 function getIP(){
   var info = os.networkInterfaces();
 

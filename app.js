@@ -29,13 +29,16 @@ if ('development' == app.get('env')) {
 var routes = require('./routes');
 app.get('/', routes.index);
 app.get('/fire', routes.fire);
+app.get('/getEnv', routes.getEnv);
+app.get('/client', routes.client);
+app.get('/animate', routes.animate);
 
 // start server
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 io.on('connection', function(socket){
-  app.on('fire', function(){
-    socket.emit('fire');
+  app.on('animate', function(){
+    socket.emit('animate');
   });
 });
 
