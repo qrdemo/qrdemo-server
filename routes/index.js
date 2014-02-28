@@ -3,7 +3,6 @@ var os = require('os');
 var app = require('../app');
 var ip = getIP();
 var port = app.get('port');
-var socket = app.get('socket');
 var url = ['http://', ip, ':', port, '/', 'fire'].join('');
 
 /*
@@ -19,7 +18,7 @@ exports.index = function(req, res){
         url: url,
         data: img,
         ip: ip,
-        port: socket
+        port: port
       })
     }
   });
@@ -30,7 +29,13 @@ exports.index = function(req, res){
  */
 exports.fire = function(req, res){
   app.emit('fire');
-
+  /*var socket = app.get('socket');
+  if (socket) {
+    console.log('socket exists')
+    socket.emit('fire');
+  } else {
+    console.log('socket is undefined');
+  }*/
   res.end();
 };
 

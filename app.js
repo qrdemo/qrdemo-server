@@ -11,7 +11,6 @@ var app = module.exports = express();
 
 // all environments
 app.set('port', 3000);
-app.set('socket', 3001)
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());
@@ -31,18 +30,15 @@ var routes = require('./routes');
 app.get('/', routes.index);
 app.get('/fire', routes.fire);
 
-// start web server
-var port = app.get('port');
-app.listen(port);
-console.log('Server is listening on ' + port);
-
-// start socket server
-var socket = app.get('socket');
-var io = require('socket.io').listen(socket);
-io.sockets.on('connection', function(socket){
-  console.log('socket connected');
-
+// start server
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
+io.on('connection', function(socket){
   app.on('fire', function(){
     socket.emit('fire');
   });
 });
+
+server.listen(app.get('port'));
+console.log('server is listening on ' + app.get('port'));
+
