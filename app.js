@@ -27,7 +27,6 @@ if ('development' == app.get('env')) {
 }
 
 var routes = require('./routes');
-app.get('/', routes.index);
 app.get('/fire', routes.fire);
 app.get('/getEnv', routes.getEnv);
 app.get('/client', routes.client);

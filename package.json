@@ -8,7 +8,6 @@
   "dependencies": {
     "express": "3.4.7",
     "jade": "*",
-    "socket.io": "0.9.16",
-    "qrcode": "~0.2.8"
+    "socket.io": "0.9.16"
   }
 }
