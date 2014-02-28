@@ -3,9 +3,11 @@ html
   head
     meta(charset="utf-8")
     meta(name ="viewport",content ="initial-scale=1, maximum-scale=3, minimum-scale=1, minimal-ui")
-    title= title
+    title 大屏互动控制台
+    link(rel="stylesheet", href="../stylesheets/style.css")
   body
-    a(id="animate", href="javascript:void(0)", data-request=url) Click
+    a(id="animate", href="javascript:void(0)", data-request=url) 点我
+      img(src="../images/Octocat.png", alt="Octocat github")
     iframe(id="ifr",style="height:1px;visibility:hidden")
     script(type="text/javascript").
       var animate = document.getElementById('animate');

@@ -1,28 +1,12 @@
-var qrcode = require('qrcode');
+
 var os = require('os');
 var app = require('../app');
 var ip = getIP();
 var port = app.get('port');
 var url = ['http://', ip, ':', port, '/', 'fire'].join('');
 
-/*
- * GET home page.
- */
 
-exports.index = function(req, res){
-  qrcode.toDataURL(url, function(err, img){
-    if (err) {
-      res.send(err.message);
-    } else {
-      res.render('index', {
-        url: url,
-        data: img,
-        ip: ip,
-        port: port
-      })
-    }
-  });
-};
+
 
 /**
  * GET fire client

@@ -1,8 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-ms-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px Arial, sans-serif;
+  text-align: center;
 }
 
+html, body{
+  height: 100%;
+  width: 100%;
+}
 a {
   color: #00B7FF;
+}
+
+#animate{
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 60px;
+    padding:10px 0;
+}
+
+#animate img{
+    display: block;
+    width: 50%;
+    margin: auto;
+}
+
+#animate:hover{
+    
 }
