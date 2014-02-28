@@ -6,7 +6,8 @@ var port = app.get('port');
 var url = ['http://', ip, ':', port, '/', 'fire'].join('');
 
 
-
+app.set('groupid',0)
+app.set('clientid', 0);
 
 /**
  * GET fire client
@@ -33,13 +34,27 @@ exports.getEnv = function(req, res){
 };
 
 exports.client = function(req, res){
+  var groupid = app.set('groupid');
+  var clientid = app.get('clientid');
+
+  ++clientid;
+  app.set('clientid', clientid);
   res.render('client', {
-    url: ['http://', ip, ':', port, '/animate'].join('')
+    url: ['http://', ip, ':', port, '/animate?clientid=', groupid + '' + clientid].join('')
   });
 };
 
 exports.animate = function(req, res){
-  app.emit('animate');
+  var groupid = app.get('groupid');
+  var cid = req.query.clientid;
+
+  console.log(cid)
+
+  // 同组第一
+  if (cid == groupid + '' + 1) {
+    app.emit('animate');
+  }
+
   res.end();
 }
 
