@@ -3,8 +3,6 @@
     padding: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    -o-ms-sizing: border-box;
-    -o-box-sizing: border-box;
     box-sizing: border-box;
 }
 body {
@@ -19,11 +17,11 @@ a {
   text-shadow: -1px -1px 0 rgba(8, 38, 51, 0.8);
 }
 
-a:hover{
+a:active {
     color: #EBBFA5;
 }
 
-#animate{
+#animate {
     display: block;
     margin: auto;
     text-align: center;
